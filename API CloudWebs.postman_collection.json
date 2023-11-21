@@ -1,0 +1,1094 @@
+{
+	"info": {
+		"_postman_id": "a7424ef9-d52f-4b5e-94d6-953c8341433d",
+		"name": "API CloudWebs",
+		"description": "En esta página se listan todas las llamadas que podemos hacer a la API de CloudWebs y que nos permiten interactuar con él añadiendo dominios, entradas DNS, asignando planes de Hosting, creando cuentas de correo... etc.\n\nPara hacer pruebas tendremos que solicitar las credecciales de la API de nuestro CloudWebs al departamento técnico y configurarlas en el auth basic (apartado Authorization) de cada llamada.\n\nComplementariamente a esta colleción hay disponible en YouTube un webinar al respecto y podemos pedir también la documentación de la API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7119344",
+		"_collection_link": "https://interstellar-resonance-963992.postman.co/workspace/Documentaci%C3%B3n~2c94e0a6-b931-4751-8e39-0419b3fdf0b7/collection/7119344-a7424ef9-d52f-4b5e-94d6-953c8341433d?action=share&source=collection_link&creator=7119344"
+	},
+	"item": [
+		{
+			"name": "Mail",
+			"item": [
+				{
+					"name": "NewMailbox",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <NewMailbox>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <email xsi:type=\"xsd:string\"></email>\r\n                <type xsi:type=\"xsd:string\"></type>\r\n                <password xsi:type=\"xsd:string\"></password>\r\n                <firstname xsi:type=\"xsd:string\"></firstname>\r\n                <lastname xsi:type=\"xsd:string\"></lastname>\r\n            </input>\r\n        </NewMailbox>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewAlias",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <NewAlias>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <emailFrom xsi:type=\"xsd:string\"></emailFrom>\r\n                <emailTo xsi:type=\"xsd:string\"></emailTo>\r\n            </input>\r\n        </NewAlias>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteAlias",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <DeleteAlias>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <emailFrom xsi:type=\"xsd:string\"></emailFrom>\r\n            </input>\r\n        </DeleteAlias>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InfoMailbox",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <InfoMailbox>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <email xsi:type=\"xsd:string\"></email>\r\n            </input>\r\n        </InfoMailbox>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangeMailboxPassword",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <ChangeMailboxPassword>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <email xsi:type=\"xsd:string\"></email>\r\n                <password xsi:type=\"xsd:string\"></password>\r\n            </input>\r\n        </ChangeMailboxPassword>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteMailBox",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <DeleteMailbox>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <email xsi:type=\"xsd:string\"></email>\r\n            </input>\r\n        </DeleteMailbox>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DNS",
+			"item": [
+				{
+					"name": "InfoDNS",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <InfoDNS>\r\n            <input>\r\n                <domain xsi:type=\"xsd:string\"></domain>\r\n            </input>\r\n        </InfoDNS>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateDNSEntry",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <CreateDNSEntry>\r\n            <input>\r\n                <domain xsi:type=\"xsd:string\"></domain>\r\n                <dns xsi:type=\"xsd:string\"></dns>\r\n                <type xsi:type=\"xsd:string\"></type>\r\n                <value xsi:type=\"xsd:string\"></value>\r\n            </input>\r\n        </CreateDNSEntry>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InfoDNSZone",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <InfoDNSZone>\r\n            <input>\r\n                <domain xsi:type=\"xsd:string\"></domain>\r\n            </input>\r\n        </InfoDNSZone>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ModifyDNSEntry",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <ModifyDNSEntry>\r\n            <input>\r\n                <dns xsi:type=\"xsd:string\"></dns>\r\n                <domain xsi:type=\"xsd:string\"></domain>\r\n                <currentvalue xsi:type=\"xsd:string\"></currentvalue>\r\n                <currenttype xsi:type=\"xsd:string\"></currenttype>\r\n                <newvalue xsi:type=\"xsd:string\"></newvalue>\r\n                <newtype xsi:type=\"xsd:string\"></newtype>\r\n            </input>\r\n        </ModifyDNSEntry>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDNSEntry",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <DeleteDNSEntry>\r\n            <input>\r\n                <dns xsi:type=\"xsd:string\"></dns>\r\n                <domain xsi:type=\"xsd:string\"></domain>\r\n                <value xsi:type=\"xsd:string\"></value>\r\n                <type xsi:type=\"xsd:string\"></type>\r\n            </input>\r\n        </DeleteDNSEntry>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Domain",
+			"item": [
+				{
+					"name": "NewDomain",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <NewDomain>\r\n            <input>\r\n                <login xsi:type=\"xsd:string\"></login>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <password xsi:type=\"xsd:string\"></password>\r\n                <planId xsi:type=\"xsd:int\"></planId>\r\n\r\n            </input>\r\n        </NewDomain>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDomain",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <NewDomain>\r\n            <input>\r\n                <login xsi:type=\"xsd:string\"></login>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <password xsi:type=\"xsd:string\"></password>\r\n                <planId xsi:type=\"xsd:int\"></planId>\r\n\r\n            </input>\r\n        </NewDomain>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InfoDomain",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <InfoDomain>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n            </input>\r\n        </InfoDomain>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InfoDomainMailboxes",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <InfoDomainMailboxes>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <offset xsi:type=\"xsd:int\">1</offset>\r\n                <limit xsi:type=\"xsd:int\">10</limit>\r\n            </input>\r\n        </InfoDomainMailboxes>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InfoDomainMailaliases",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <InfoDomainMailaliases>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n                <offset xsi:type=\"xsd:int\">1</offset>\r\n                <limit xsi:type=\"xsd:int\">10</limit>\r\n            </input>\r\n        </InfoDomainMailaliases>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InfoDomainStatus",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <StatusDomain>\r\n            <input>\r\n                <domainName xsi:type=\"xsd:string\"></domainName>\r\n            </input>\r\n        </StatusDomain>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plan",
+			"item": [
+				{
+					"name": "InfoMailPlanService",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:web=\"urn:cloudmail\">\r\n    <soapenv:Header/>\r\n    <soap:Body>\r\n        <NewDomain>\r\n            <InfoMailPlanService>\r\n                <login xsi:type=\"xsd:string\">serv***.servidoresdns.net</login>\r\n                <namePlan xsi:type=\"xsd:string\"></namePlan>\r\n            </input>\r\n        </InfoMailPlanService>\r\n    </soap:Body>\r\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.servidoresdns.net:54321/hosting/api/soap/index.php",
+							"protocol": "https",
+							"host": [
+								"api",
+								"servidoresdns",
+								"net"
+							],
+							"port": "54321",
+							"path": [
+								"hosting",
+								"api",
+								"soap",
+								"index.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
